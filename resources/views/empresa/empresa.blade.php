@@ -134,7 +134,7 @@
             </div>
         </div>
     @endif
-    @if (count($fornecedores) == 0)
+    @if (count($empresas) == 0)
         <h4>Nenhum resultado encontrado!</h4>
     @endif
 

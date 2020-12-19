@@ -50,8 +50,8 @@ class CreateFullDatabase extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresa');
-        Schema::dropIfExists('fornecedor');
-        Schema::dropIfExists('fornecedor_telefone');
+        Schema::dropIfExists('empresas');
+        Schema::dropIfExists('fornecedores');
+        Schema::dropIfExists('fornecedor_telefones');
     }
 }
