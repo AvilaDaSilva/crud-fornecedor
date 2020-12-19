@@ -33,13 +33,6 @@
                 </div>
                 
                 <div class="col-sm-3 campo-formulario">
-                    <label class="col-sm-12">Data de Nascimento</label>
-                    <div class="col-sm-12">
-                        <input type="text" name="data_nascimento" id="data_nascimento" class="form-control" value="{{ isset($fornecedorEdit) ? $fornecedorEdit->data_nascimento : '' }}">
-                    </div>
-                </div>
-                
-                <div class="col-sm-4 campo-formulario">
                     <label class="col-sm-12">Tipo Pessoa</label>
                     <div class="col-sm-12">
                         <select name="tipo_pessoa" id="tipo_pessoa" class="form-control">
@@ -47,6 +40,13 @@
                             <option value="0" {{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == '0' ? 'selected="selected"' : '' }}>Pessoa Física</option>
                             <option value="1" {{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == '1' ? 'selected="selected"' : '' }}>Pessoa Juridica</option>
                         </select>
+                    </div>
+                </div>
+                
+                <div class="col-sm-4 campo-formulario" id=campo_data_nascimento>
+                    <label class="col-sm-12">Data de Nascimento</label>
+                    <div class="col-sm-12">
+                        <input type="text" name="data_nascimento" id="data_nascimento" class="form-control" value="{{ isset($fornecedorEdit) ? date('d/m/Y', strtotime($fornecedorEdit->data_nascimento)) : '' }}">
                     </div>
                 </div>
                 
@@ -198,6 +198,7 @@
             //formulario de cadastro
             $('#campo_rg').toggle({{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == 0 ? 'true' : 'false' }});
             $('#campo_cpf').toggle({{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == 0 ? 'true' : 'false' }});
+            $('#campo_data_nascimento').toggle({{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == 0 ? 'true' : 'false' }});
             $('#campo_cnpj').toggle({{ isset($fornecedorEdit) && $fornecedorEdit->tipo_pessoa == 1 ? 'true' : 'false' }});
             $('#cpf').mask('999.999.999-99');
             $('#cnpj').mask('99.999.999/9999-99');
@@ -237,16 +238,19 @@
             if ($('#tipo_pessoa').val() == '1') {
                 $('#campo_rg').toggle(false);
                 $('#campo_cpf').toggle(false);
+                $('#campo_data_nascimento').toggle(false);
                 $('#campo_cnpj').toggle(true);
 
             } else if ($('#tipo_pessoa').val() == '0') {
                 $('#campo_rg').toggle(true);
                 $('#campo_cpf').toggle(true);
+                $('#campo_data_nascimento').toggle(true);
                 $('#campo_cnpj').toggle(false);
 
             } else {
                 $('#campo_rg').toggle(false);
                 $('#campo_cpf').toggle(false);
+                $('#campo_data_nascimento').toggle(false);
                 $('#campo_cnpj').toggle(false);
             }
         });
