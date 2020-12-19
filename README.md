@@ -1,3 +1,44 @@
+## Crud-Fornecedor
+
+Is a test project to learn more about the Laravel framework (5.5 version). With a simple crud service, to learn about the main concepts of OO programming.
+
+## Status
+
+Complete, but available to improvements
+
+## Features
+
+ - [x] Company register;
+ - [x] Supplier register;
+ - [x] Supplier contact register;
+
+## What is necessary
+
+For this project, you can use what DB you want. But I'm using MySQL;
+For the server you can use the artisan and start by the command bellow in the root project directory:
+ - php artisan serve --port=8080
+But I'm using XAMPP properly configured
+
+## How to
+
+To install the project, first, you have to clone this repository, then create a new DB called crud-fornecedor as the command bellow:
+ - CREATE DATABASE crud-fornecedor;
+
+OBS: To write this project I was using this information to DB connection:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crud_fornecedor
+DB_USERNAME=root
+DB_PASSWORD=
+If you want to use something different, or your local base is using other information to connect, please edit the file with the right information:
+ - /.env
+
+After that, use the migration command, in the root project directory, to create the tables:
+ - php artisan migrate
+
+And it's done, you can start to code, or test the project
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
