@@ -16,7 +16,7 @@ class CreateFullDatabase extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->integer('id', 1)->autoIncrement();
             $table->string('nome_fantasia');
-            $table->string('cnpj', 14);
+            $table->string('cnpj', 18);
             $table->string('uf', 2);
             $table->timestamps();
         });
@@ -29,7 +29,7 @@ class CreateFullDatabase extends Migration
             $table->boolean('tipo_pessoa');
             $table->date('data_nascimento')->nullable();
             $table->string('rg', 50)->nullable();
-            $table->string('cpf_cnpj', 14);
+            $table->string('cpf_cnpj', 18);
             $table->date('data_cadastro');
             $table->timestamps();
         });
